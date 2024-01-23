@@ -2,6 +2,7 @@
 using MEC.ControleRDO.Models.Base;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 
 namespace MEC.ControleRDO.Repository.Generic
 {
@@ -45,27 +46,30 @@ namespace MEC.ControleRDO.Repository.Generic
 
         public T Update(T item)
         {
-            var result = dataset.SingleOrDefault(p => p.Id.Equals(item.Id));
-            if (result != null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
-
                 try
                 {
-                    _context.Entry(result).CurrentValues.SetValues(item);
-                    _context.SaveChanges();
-                    return result;
+                    var result = dataset.SingleOrDefault(p => p.Id.Equals(item.Id));
+                    if (result != null)
+                    {
+                        _context.Entry(result).CurrentValues.SetValues(item);
+                        _context.SaveChanges();
+                        transaction.Commit();
+                        return result;
+                    }
+                    else
+                    {
+                        transaction.Rollback();
+                        return null;
+                    }
                 }
                 catch (Exception)
                 {
+                    transaction.Rollback();
                     throw;
                 }
             }
-
-            else
-            {
-                return null;
-            }
-
         }
 
         public void Delete(long id)

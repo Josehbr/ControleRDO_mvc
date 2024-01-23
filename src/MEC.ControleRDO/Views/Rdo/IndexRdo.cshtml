@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Data.VO.RdoVO>
+
+<h2>Rdo Index</h2>
+
+<p>
+    <a asp-action="CreateRdoConfirmed">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>DataRdo</th>
+            <th>DataEnvio</th>
+            <th>NomeFiscal</th>
+            <th>NumeroOrcamento</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rdo in Model)
+        {
+            <tr>
+                <td>@rdo.Id</td>
+                <td>@rdo.DataRdo</td>
+                <td>@rdo.DataEnvio</td>
+                <td>@rdo.NomeFiscal</td>
+                <td>@rdo.NumeroOrcamento</td>
+                <td>
+                    <a asp-action="DetailsRdo" asp-route-id="@rdo.Id">Details</a> |
+                    <a asp-action="EditRdo" asp-route-id="@rdo.Id">Edit</a> |
+                    <a asp-action="DeleteRdo" asp-route-id="@rdo.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

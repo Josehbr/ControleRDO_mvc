@@ -2,7 +2,7 @@
 
 <h2>Edit Fiscal</h2>
 
-<form asp-action="Edit" method="post">
+<form asp-action="EditFiscalConfirmed" method="post">
     <div class="form-group">
         <label asp-for="Id" class="control-label"></label>
         <input asp-for="Id" class="form-control" readonly />
@@ -20,6 +20,6 @@
     </div>
 </form>
 
-<form asp-action="Delete" method="post">
-    <a asp-action="Index">Back to List</a>
+<form>
+    <a asp-action="IndexFiscal">Back to List</a>
 </form>

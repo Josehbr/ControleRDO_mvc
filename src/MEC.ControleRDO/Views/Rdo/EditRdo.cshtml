@@ -1,0 +1,25 @@
+﻿@model Data.VO.RdoVO
+
+<h2>Edit Rdo</h2>
+
+<form asp-action="EditRdoConfirmed" method="post">
+    <div class="form-group">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="DataRdo" class="control-label"></label>
+        <input asp-for="DataRdo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DataEnvio" class="control-label"></label>
+        <input asp-for="DataEnvio" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit" class="btn btn-primary" />
+    </div>
+</form>
+
+<form>
+    <a asp-action="IndexRdo">Back to List</a>
+</form>

@@ -16,9 +16,9 @@
         <dt class="col-sm-2">Email</dt>
         <dd class="col-sm-10">@Model.Email</dd>
     </dl>
-    <form asp-action="Delete" method="post">
+    <form asp-action="DeleteFiscalConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="IndexFiscal">Back to List</a>
     </form>
 </div>

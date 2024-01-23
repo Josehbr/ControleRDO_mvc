@@ -1,0 +1,24 @@
+﻿@model Data.VO.ObraVO
+
+<h2>Fiscal Details</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Id</dt>
+    <dd class="col-sm-10">@Model.Id</dd>
+</dl>
+<dl class="row">
+    <dt class="col-sm-2">NumeroOrcamento</dt>
+    <dd class="col-sm-10">@Model.NumeroOrcamento</dd>
+</dl>
+<dl class="row">
+    <dt class="col-sm-2">Nome</dt>
+    <dd class="col-sm-10">@Model.Nome</dd>
+</dl>
+<dl class="row">
+    <dt class="col-sm-2">SE</dt>
+    <dd class="col-sm-10">@Model.SE</dd>
+</dl>
+
+<form asp-action="DeleteObraConfirmed" method="post">
+    <a asp-action="IndexObra">Back to List</a>
+</form>

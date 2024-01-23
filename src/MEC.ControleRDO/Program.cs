@@ -21,6 +21,8 @@ builder.Services.AddDbContext<ControleRdoContext>(options => options.UseMySql(
 //Dependency Injection
 
 builder.Services.AddScoped<IFiscalBusiness, FiscalBusinessImplementation>();
+builder.Services.AddScoped<IObraBusiness, ObraBusinessImplementation>();
+builder.Services.AddScoped<IRdoBusiness, RdoBusinessImplementation>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
@@ -43,7 +45,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Fiscal}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 

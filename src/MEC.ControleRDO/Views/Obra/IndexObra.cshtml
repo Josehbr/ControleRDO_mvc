@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Data.VO.ObraVO>
+
+<h2>Obra Index</h2>
+
+<p>
+    <a asp-action="CreateObraConfirmed">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numero do Orçamento</th>
+            <th>Nome</th>
+            <th>SE</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fiscal in Model)
+        {
+            <tr>
+                <td>@fiscal.Id</td>
+                <td>@fiscal.NumeroOrcamento</td>
+                <td>@fiscal.SE</td>
+                <td>
+                    <a asp-action="DetailsObra" asp-route-id="@fiscal.Id">Details</a> |
+                    <a asp-action="EditObra" asp-route-id="@fiscal.Id">Edit</a> |
+                    <a asp-action="DeleteObra" asp-route-id="@fiscal.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

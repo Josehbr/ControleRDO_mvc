@@ -15,15 +15,15 @@ namespace MEC.ControleRDO.Controllers
             _fiscalBusiness = fiscalBusiness;
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        [HttpGet("IndexFiscal")]
+        public IActionResult IndexFiscal()
         {
             var fiscalList = _fiscalBusiness.FindAll();
             return View(fiscalList);
         }
 
-        [HttpGet("{Id}")]
-        public IActionResult Details(long Id)
+        [HttpGet("DetailsFiscal/{Id}")]
+        public IActionResult DetailsFiscal(long Id)
         {
             var fiscal = _fiscalBusiness.FindById(Id);
 
@@ -32,14 +32,14 @@ namespace MEC.ControleRDO.Controllers
             return View(fiscal);
         }
 
-        [HttpGet]
-        public IActionResult Create()
+        [HttpGet("CreateFiscal/{Id}")]
+        public IActionResult CreateFiscal()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(FiscalVO fiscal)
+        public IActionResult CreateFiscalConfirmed(FiscalVO fiscal)
         {
             if (fiscal == null) return BadRequest();
 
@@ -50,8 +50,8 @@ namespace MEC.ControleRDO.Controllers
 
 
 
-        [HttpGet]
-        public IActionResult Edit(long Id)
+        [HttpGet("EditFiscal/{Id}")]
+        public IActionResult EditFiscal(long Id)
         {
             var fiscal = _fiscalBusiness.FindById(Id);
 
@@ -61,18 +61,18 @@ namespace MEC.ControleRDO.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(FiscalVO fiscal)
+        public IActionResult EditFiscalConfirmed(FiscalVO fiscal)
         {
             if (fiscal == null) return BadRequest();
 
             _fiscalBusiness.Update(fiscal);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexFiscal));
         }
 
 
-        [HttpGet]
-        public IActionResult Delete(long Id)
+        [HttpGet("DeleteFiscal/{Id}")]
+        public IActionResult DeleteFiscal(long Id)
         {
             var fiscal = _fiscalBusiness.FindById(Id);
 
@@ -81,12 +81,12 @@ namespace MEC.ControleRDO.Controllers
             return View(fiscal);
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(long Id)
+        [HttpPost]
+        public IActionResult DeleteFiscalConfirmed(long Id)
         {
             _fiscalBusiness.Delete(Id);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexFiscal));
         }
     }
 }

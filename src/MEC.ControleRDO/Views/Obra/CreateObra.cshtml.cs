@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MEC.ControleRDO.Views.Fiscal
 {
-    public class IndexModel : PageModel
+    public class CreateObraModel : PageModel
     {
         public void OnGet()
         {
