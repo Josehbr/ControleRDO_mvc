@@ -28,10 +28,14 @@ namespace MEC.ControleRDO.Controllers
         {
             var rdo = _rdoBusiness.FindById(Id);
 
-            if (rdo == null) return NotFound();
+            if (rdo == null)
+            {
+                return NotFound();
+            }
 
             return View(rdo);
         }
+
 
 
         [HttpGet("CreateRdo")]

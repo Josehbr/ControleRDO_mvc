@@ -59,8 +59,26 @@ namespace MEC.ControleRDO.Business.Implementations
 
         public RdoVO FindById(long Id)
         {
-            return _convert.Parser(_repository.FindById(Id));
+            var rdoModel = _repository.FindById(Id);
+
+            if (rdoModel == null)
+            {
+                // Lidar com o caso em que a entidade não é encontrada
+                return null;
+            }
+
+            var obra = _obraRepository.FindById(rdoModel.ObraId);
+            var fiscal = _fiscalRepository.FindById(obra.FiscalId);
+
+            var rdoVO = _convert.Parser(rdoModel);
+
+            rdoVO.NumeroOrcamento = obra?.NumeroOrcamento;
+            rdoVO.NomeObra = obra?.Nome;
+            rdoVO.NomeFiscal = fiscal?.Nome;
+
+            return rdoVO;
         }
+
 
         public RdoVO Update(RdoVO rdo)
         {

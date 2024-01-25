@@ -1,4 +1,4 @@
-﻿@model Data.VO.FiscalVO
+﻿@model Data.VO.RdoVO
 
 <h2>Delete Fiscal</h2>
 
@@ -9,16 +9,24 @@
         <dd class="col-sm-10">@Model.Id</dd>
     </dl>
     <dl class="row">
-        <dt class="col-sm-2">Nome</dt>
-        <dd class="col-sm-10">@Model.Nome</dd>
+        <dt class="col-sm-2">DataRdo</dt>
+        <dd class="col-sm-10">@Model.DataRdo</dd>
     </dl>
     <dl class="row">
-        <dt class="col-sm-2">Email</dt>
-        <dd class="col-sm-10">@Model.Email</dd>
+        <dt class="col-sm-2">NumeroOrcamento</dt>
+        <dd class="col-sm-10">@Model.NumeroOrcamento</dd>
     </dl>
-    <form asp-action="DeleteFiscalConfirmed" method="post">
+    <dl class="row">
+        <dt class="col-sm-2">DataAssinatura</dt>
+        <dd class="col-sm-10">@Model.DataAssinatura</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Observacao</dt>
+        <dd class="col-sm-10">@Model.Observacao</dd>
+    </dl>
+    <form asp-action="DeleteRdoConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="IndexFiscal">Back to List</a>
+        <a asp-action="IndexRdo">Back to List</a>
     </form>
 </div>

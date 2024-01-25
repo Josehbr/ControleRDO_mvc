@@ -1,5 +1,9 @@
 ﻿@model Data.VO.RdoVO
-
+@{
+    Model.DataRdo = DateTime.Now.Date;
+    Model.DataEnvio = DateTime.Now.Date;
+    Model.DataAssinatura = DateTime.Now.Date;
+}
 <h2>Edit Rdo</h2>
 
 <form asp-action="EditRdoConfirmed" method="post">
@@ -9,12 +13,29 @@
     </div>
     <div class="form-group">
         <label asp-for="DataRdo" class="control-label"></label>
-        <input asp-for="DataRdo" class="form-control" />
+        <input asp-for="DataRdo" class="form-control" type="date" />
     </div>
+
     <div class="form-group">
         <label asp-for="DataEnvio" class="control-label"></label>
-        <input asp-for="DataEnvio" class="form-control" />
+        <input asp-for="DataEnvio" class="form-control" type="date" />
     </div>
+
+    <div class="form-group">
+        <label asp-for="DataAssinatura" class="control-label"></label>
+        <input asp-for="DataAssinatura" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <input asp-for="Assinatura" type="checkbox" />
+        <span>Assinado? </span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Observacao" class="control-label"></label>
+        <textarea asp-for="Observacao" class="form-control col-sm-12"></textarea>
+    </div>
+    <br />
     <div class="form-group">
         <input type="submit" value="Edit" class="btn btn-primary" />
     </div>
