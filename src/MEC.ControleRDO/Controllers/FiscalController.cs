@@ -32,7 +32,7 @@ namespace MEC.ControleRDO.Controllers
             return View(fiscal);
         }
 
-        [HttpGet("CreateFiscal/{Id}")]
+        [HttpGet("CreateFiscal")]
         public IActionResult CreateFiscal()
         {
             return View();
@@ -45,7 +45,7 @@ namespace MEC.ControleRDO.Controllers
 
             _fiscalBusiness.Create(fiscal);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexFiscal));
         }
 
 

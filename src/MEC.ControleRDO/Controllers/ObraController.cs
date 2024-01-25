@@ -33,10 +33,14 @@ namespace MEC.ControleRDO.Controllers
             return View(obra);
         }
 
-        [HttpGet("CreateObra/{Id}")]
-        public IActionResult CreateObra()
+        [HttpGet("CreateObra")]
+        public IActionResult CreateObra(ObraVO obra)
         {
-            return View();
+            var listaDeFiscais = _fiscalBusiness.FindAll();
+            obra.ListaDeFiscais = listaDeFiscais;
+
+            return View(obra);
+
         }
 
         [HttpPost]
@@ -54,7 +58,6 @@ namespace MEC.ControleRDO.Controllers
 
             if (obra == null) return NotFound();
 
-            // Supondo que você tenha um método para obter a lista de fiscais no seu serviço
             var listaDeFiscais = _fiscalBusiness.FindAll();
             obra.ListaDeFiscais = listaDeFiscais;
 

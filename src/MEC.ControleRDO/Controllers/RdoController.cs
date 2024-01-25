@@ -8,11 +8,13 @@ namespace MEC.ControleRDO.Controllers
     {
         private readonly ILogger<RdoController> _logger;
         private readonly IRdoBusiness _rdoBusiness;
+        private readonly IObraBusiness _obraBusiness;
 
-        public RdoController(ILogger<RdoController> logger, IRdoBusiness rdoBusiness)
+        public RdoController(ILogger<RdoController> logger, IRdoBusiness rdoBusiness, IObraBusiness obraBusiness)
         {
             _logger = logger;
             _rdoBusiness = rdoBusiness;
+            _obraBusiness = obraBusiness;
         }
 
         [HttpGet("IndexRdo")]
@@ -32,10 +34,12 @@ namespace MEC.ControleRDO.Controllers
         }
 
 
-        [HttpGet("CreateRdp/{Id}")]
-        public IActionResult CreateRdo()
+        [HttpGet("CreateRdo")]
+        public IActionResult CreateRdo(RdoVO rdo)
         {
-            return View();
+            var listaObra = _obraBusiness.FindAll();
+            rdo.ListaObra = listaObra;
+            return View(rdo);
         }
 
         [HttpPost]
@@ -43,7 +47,7 @@ namespace MEC.ControleRDO.Controllers
         {
             if (rdo == null) return BadRequest();
             _rdoBusiness.Create(rdo);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexRdo));
         }
 
         [HttpGet("EditRdo/{Id}")]
@@ -62,7 +66,7 @@ namespace MEC.ControleRDO.Controllers
 
             _rdoBusiness.Update(rdo);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexRdo));
         }
         [HttpGet("DeleteRdo/{Id}")]
         public IActionResult DeleteRdo(long Id)
@@ -74,7 +78,7 @@ namespace MEC.ControleRDO.Controllers
             return View(rdo);
         }
         [HttpPost]
-        public IActionResult DeleteRdpConfirmed(long Id)
+        public IActionResult DeleteRdoConfirmed(long Id)
         {
             _rdoBusiness.Delete(Id);
 

@@ -1,15 +1,41 @@
-﻿@model Data.VO.FiscalVO
+﻿@model Data.VO.RdoVO
+
+@{
+    // Defina os valores padrão para as propriedades de data no modelo
+    Model.DataRdo = DateTime.Now.Date;
+    Model.DataEnvio = DateTime.Now.Date;
+    Model.DataAssinatura = DateTime.Now.Date;
+}
 
 <h2>Adicionar Fiscal</h2>
 
-<form asp-action="CreateFiscalConfirmed" method="post">
+<form asp-action="CreateRdoConfirmed" method="post">
+
     <div class="form-group">
-        <label asp-for="Nome" class="control-label"></label>
-        <input asp-for="Nome" class="form-control" />
+        <label asp-for="DataRdo" class="control-label"></label>
+        <input asp-for="DataRdo" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataEnvio" class="control-label"></label>
+        <input asp-for="DataEnvio" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataAssinatura" class="control-label"></label>
+        <input asp-for="DataAssinatura" class="form-control" type="date" />
     </div>
     <div class="form-group">
-        <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" />
+        <input asp-for="Assinatura" type="checkbox" />
+        <span>Assinado? </span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Observacao" class="control-label"></label>
+        <input asp-for="Observacao" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ObraId" class="control-label"></label>
+        <select asp-for="ObraId" asp-items="@(new SelectList(Model.ListaObra, "Id", "Nome"))" class="form-control"></select>
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />

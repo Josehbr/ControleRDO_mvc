@@ -1,9 +1,11 @@
-﻿@model IEnumerable<Data.VO.RdoVO>
+﻿@model IEnumerable<MEC.ControleRDO.Data.VO.RdoVO>
 
 <h2>Rdo Index</h2>
 
 <p>
-    <a asp-action="CreateRdoConfirmed">Create New</a>
+    <form action="CreateRdo">
+        <button type="submit">Create New</button>
+    </form>
 </p>
 
 <table class="table">
@@ -22,8 +24,8 @@
         {
             <tr>
                 <td>@rdo.Id</td>
-                <td>@rdo.DataRdo</td>
-                <td>@rdo.DataEnvio</td>
+                <td>@rdo.DataRdo.ToString("dd/MM/yyyy")</td>
+                <td>@rdo.DataEnvio.ToString("dd/MM/yyyy")</td>
                 <td>@rdo.NomeFiscal</td>
                 <td>@rdo.NumeroOrcamento</td>
                 <td>

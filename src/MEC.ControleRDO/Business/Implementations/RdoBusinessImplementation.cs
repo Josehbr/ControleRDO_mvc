@@ -36,7 +36,7 @@ namespace MEC.ControleRDO.Business.Implementations
 
         public List<RdoVO> FindAll()
         {
-            var rdos = _repository.FindAll();
+            List<RdoModel> rdos = _repository.FindAll();
 
             var JoinRdo = rdos.Select(rdo =>
             {
