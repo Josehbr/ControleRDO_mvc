@@ -1,6 +1,8 @@
 ﻿using MEC.ControleRDO.Business;
 using MEC.ControleRDO.Data.VO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 
 namespace MEC.ControleRDO.Controllers
 {
@@ -58,6 +60,7 @@ namespace MEC.ControleRDO.Controllers
         public IActionResult EditRdo(long Id)
         {
             var rdo = _rdoBusiness.FindById(Id);
+
             if (rdo == null) return NotFound();
 
             return View(rdo);
@@ -84,9 +87,27 @@ namespace MEC.ControleRDO.Controllers
         [HttpPost]
         public IActionResult DeleteRdoConfirmed(long Id)
         {
-            _rdoBusiness.Delete(Id);
+            try
+            {
+                _rdoBusiness.Delete(Id);
+                return RedirectToAction(nameof(IndexRdo));
+            }
+            catch (DbUpdateException ex) when (ex.InnerException is MySqlException mySqlException)
+            {
+                // Tratar erro específico de violação de chave estrangeira
+                ModelState.AddModelError("Error", "Não é possível excluir este registro devido a referências existentes em outras tabelas.");
+                ViewData["ErrorMessage"] = "Não é possível excluir este registro devido a referências existentes em outras tabelas.";
+            }
+            catch (Exception ex)
+            {
+                // Tratar outros erros genéricos
+                ModelState.AddModelError("Error", $"Ocorreu um erro ao excluir o registro: {ex.Message}");
+                ViewData["ErrorMessage"] = "Ocorreu um erro ao excluir o registro.";
+            }
 
-            return RedirectToAction(nameof(IndexRdo));
+            var rdo = _rdoBusiness.FindById(Id);
+            if (rdo == null) return NotFound();
+            return View("DeleteRdo", rdo);
         }
     }
 }

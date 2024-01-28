@@ -1,8 +1,11 @@
-﻿namespace MEC.ControleRDO.Data.VO
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MEC.ControleRDO.Data.VO
 {
     public class ObraVO
     {
         public long Id { get; set; }
+        [Display(Name = "Numero do Orçamento")]
         public string NumeroOrcamento { get; set; }
 
         public string Nome { get; set; }

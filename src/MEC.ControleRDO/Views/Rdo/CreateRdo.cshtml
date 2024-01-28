@@ -37,9 +37,10 @@
         <label asp-for="ObraId" class="control-label"></label>
         <select asp-for="ObraId" asp-items="@(new SelectList(Model.ListaObra, "Id", "Nome"))" class="form-control"></select>
     </div>
+    <br />
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
+        <a asp-action="IndexRdo">Back to List</a>
     </div>
 </form>
 
-<a asp-action="IndexRdo">Back to List</a>

@@ -11,10 +11,8 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Numero do Orçamento</th>
             <th>Nome</th>
-            <th>SE</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,7 +20,6 @@
         @foreach (var fiscal in Model)
         {
             <tr>
-                <td>@fiscal.Id</td>
                 <td>@fiscal.NumeroOrcamento</td>
                 <td>@fiscal.SE</td>
                 <td>

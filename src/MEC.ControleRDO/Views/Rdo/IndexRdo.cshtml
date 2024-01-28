@@ -11,11 +11,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>DataRdo</th>
-            <th>DataEnvio</th>
-            <th>NomeFiscal</th>
-            <th>NumeroOrcamento</th>
+            <th>Data do Rdo</th>
+            <th>Data do Envio</th>
+            <th>Nomedo Fiscal</th>
+            <th>Numero do Orçamento</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -23,7 +22,6 @@
         @foreach (var rdo in Model)
         {
             <tr>
-                <td>@rdo.Id</td>
                 <td>@rdo.DataRdo.ToString("dd/MM/yyyy")</td>
                 <td>@rdo.DataEnvio.ToString("dd/MM/yyyy")</td>
                 <td>@rdo.NomeFiscal</td>

@@ -16,6 +16,8 @@
         <input asp-for="DataRdo" class="form-control" type="date" />
     </div>
 
+
+
     <div class="form-group">
         <label asp-for="DataEnvio" class="control-label"></label>
         <input asp-for="DataEnvio" class="form-control" type="date" />
@@ -38,9 +40,7 @@
     <br />
     <div class="form-group">
         <input type="submit" value="Edit" class="btn btn-primary" />
+        <a asp-action="IndexRdo">Back to List</a>
     </div>
 </form>
 
-<form>
-    <a asp-action="IndexRdo">Back to List</a>
-</form>
