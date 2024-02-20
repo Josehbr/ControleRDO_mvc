@@ -20,12 +20,14 @@ namespace MEC.ControleRDO.Context
             modelBuilder.Entity<ObraModel>()
                 .HasOne(o => o.Fiscal)
                 .WithMany(f => f.Obras)
-            .HasForeignKey(o => o.FiscalId);
-
+                .HasForeignKey(o => o.FiscalId)
+                .OnDelete(DeleteBehavior.Restrict); 
+                
             modelBuilder.Entity<RdoModel>()
                 .HasOne(r => r.Obra)
                 .WithMany(o => o.Rdos)
-                .HasForeignKey(r => r.ObraId);
+                .HasForeignKey(r => r.ObraId)
+                .OnDelete(DeleteBehavior.Restrict); 
         }
     }
 }

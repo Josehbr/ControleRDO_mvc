@@ -63,6 +63,9 @@ namespace MEC.ControleRDO.Controllers
 
             if (rdo == null) return NotFound();
 
+            var listaobra = _obraBusiness.FindAll();
+            rdo.ListaObra = listaobra;
+
             return View(rdo);
         }
 
