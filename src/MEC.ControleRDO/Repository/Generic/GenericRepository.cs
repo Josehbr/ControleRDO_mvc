@@ -3,6 +3,7 @@ using MEC.ControleRDO.Models.Base;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
+using System.Data;
 
 namespace MEC.ControleRDO.Repository.Generic
 {
@@ -89,7 +90,6 @@ namespace MEC.ControleRDO.Repository.Generic
                 }
             }
         }
-
 
     }
 }

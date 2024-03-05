@@ -19,12 +19,26 @@ namespace MEC.ControleRDO.Controllers
             _obraBusiness = obraBusiness;
         }
 
-        [HttpGet("IndexRdo")]
-        public IActionResult IndexRdo()
+        public IActionResult IndexRdo(string filterType, string startDate, string endDate, string numeroOrcamento)
         {
-            var rdolist = _rdoBusiness.FindAll();
+            DateTime? startDateTime = null;
+            DateTime? endDateTime = null;
+
+            if (!string.IsNullOrEmpty(startDate) && DateTime.TryParse(startDate, out DateTime parsedStartDate))
+            {
+                startDateTime = parsedStartDate;
+            }
+
+            if (!string.IsNullOrEmpty(endDate) && DateTime.TryParse(endDate, out DateTime parsedEndDate))
+            {
+                endDateTime = parsedEndDate;
+            }
+
+            var rdolist = _rdoBusiness.FindAll(filterType, startDateTime, endDateTime, numeroOrcamento);
             return View(rdolist);
         }
+
+
         [HttpGet("DetailsRdo/{Id}")]
         public IActionResult DetailsRdo(long Id)
         {

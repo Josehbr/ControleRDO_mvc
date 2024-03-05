@@ -34,9 +34,34 @@ namespace MEC.ControleRDO.Business.Implementations
             _repository.Delete(Id);
         }
 
-        public List<RdoVO> FindAll()
+        public List<RdoVO> FindAll(string filterType, DateTime? startDate, DateTime? endDate, string numeroOrcamento)
         {
             List<RdoModel> rdos = _repository.FindAll();
+
+            // Aplicar filtro por datas, se fornecido
+            if (!string.IsNullOrEmpty(filterType) && startDate != null && endDate != null)
+            {
+                switch (filterType)
+                {
+                    case "DataEnvio":
+                        rdos = rdos.Where(rdo => rdo.DataEnvio >= startDate && rdo.DataEnvio <= endDate).ToList();
+                        break;
+                    case "DataRdo":
+                        rdos = rdos.Where(rdo => rdo.DataRdo >= startDate && rdo.DataRdo <= endDate).ToList();
+                        break;
+                    case "DataAssinatura":
+                        rdos = rdos.Where(rdo => rdo.DataAssinatura >= startDate && rdo.DataAssinatura <= endDate).ToList();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            // Aplicar filtro por número de orçamento associado à Obra, se fornecido
+            if (!string.IsNullOrEmpty(numeroOrcamento))
+            {
+                rdos = rdos.Where(rdo => rdo.Obra.NumeroOrcamento == numeroOrcamento).ToList();
+            }
 
             var JoinRdo = rdos.Select(rdo =>
             {
@@ -45,10 +70,8 @@ namespace MEC.ControleRDO.Business.Implementations
 
                 var rdoVO = _convert.Parser(rdo);
 
-
                 rdoVO.NumeroOrcamento = obra?.NumeroOrcamento;
                 rdoVO.NomeObra = obra?.Nome;
-
                 rdoVO.NomeFiscal = fiscal?.Nome;
 
                 return rdoVO;
@@ -86,5 +109,7 @@ namespace MEC.ControleRDO.Business.Implementations
             rdoEntity = _repository.Update(rdoEntity);
             return _convert.Parser(rdoEntity);
         }
+
+        
     }
 }

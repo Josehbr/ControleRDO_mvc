@@ -3,10 +3,48 @@
 <h2>Rdo Index</h2>
 
 <p>
-    <form action="CreateRdo">
-        <button type="submit">Create New</button>
+    <form asp-action="CreateRdo">
+        <button type="submit" class="btn btn-primary">Create New</button>
     </form>
 </p>
+
+<!-- Botão de filtro -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
+    Filtrar
+</button>
+
+<!-- Modal de filtro -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">Filtrar por:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulário de filtro -->
+                <form method="post" action="@Url.Action("IndexRdo")">
+                    <div class="mb-3">
+                        <label for="filterType" class="form-label">Tipo de filtro:</label>
+                        <select class="form-select" id="filterType" name="filterType">
+                            <option value="DataRdo">Data de Rdo</option>
+                            <option value="DataEnvio">Data de Envio</option>
+                        </select>
+                    </div>
+                    <div class="mb-3" id="dateFilterContainer">
+                        <label for="startDate" class="form-label">Data de início:</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate">
+                    </div>
+                    <div class="mb-3" id="endDateFilterContainer">
+                        <label for="endDate" class="form-label">Data de fim:</label>
+                        <input type="date" class="form-control" id="endDate" name="endDate">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <table class="table">
     <thead>
@@ -35,3 +73,22 @@
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#filterType').change(function () {
+                if ($(this).val() === 'NumeroOrcamento') {
+                    $('#numeroOrcamentoContainer').load('@Url.Action("GetNumeroOrcamentoList")');
+                    $('#numeroOrcamentoContainer').show();
+                    $('#dateFilterContainer').hide();
+                    $('#endDateFilterContainer').hide();
+                } else {
+                    $('#numeroOrcamentoContainer').hide();
+                    $('#dateFilterContainer').show();
+                    $('#endDateFilterContainer').show();
+                }
+            });
+        });
+    </script>
+}

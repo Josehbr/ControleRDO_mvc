@@ -6,7 +6,7 @@ namespace MEC.ControleRDO.Business
     {
         RdoVO Create(RdoVO rdo);
         RdoVO Update(RdoVO rdo);
-        List<RdoVO> FindAll();
+        List<RdoVO> FindAll(string filterType, DateTime? startDate, DateTime? endDate, string numeroOrcamento);
         RdoVO FindById(long Id);
         void Delete(long Id);
     }
