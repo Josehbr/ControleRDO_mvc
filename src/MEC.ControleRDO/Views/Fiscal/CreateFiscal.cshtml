@@ -1,6 +1,10 @@
 ﻿@model Data.VO.FiscalVO
 
-<h2>Adicionar Fiscal</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Fiscal/edit.css">
+</head>
+
+<h2>Adicionar</h2>
 
 <form asp-action="CreateFiscalConfirmed" method="post">
     <div class="form-group">
@@ -13,7 +17,7 @@
     </div>
     <br/>
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-        <a asp-action="IndexFiscal">Back to List</a>
+        <input type="submit" value="Criar" class="btn btn-primary" />
+        <a asp-action="IndexFiscal">Voltar</a>
     </div>
 </form>

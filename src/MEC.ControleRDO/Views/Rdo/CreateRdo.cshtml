@@ -1,13 +1,15 @@
 ﻿@model Data.VO.RdoVO
-
 @{
     // Defina os valores padrão para as propriedades de data no modelo
     Model.DataRdo = DateTime.Now.Date;
     Model.DataEnvio = DateTime.Now.Date;
     Model.DataAssinatura = DateTime.Now.Date;
 }
+<head>
+    <link rel="stylesheet" href="~/css/Rdo/edit.css">
+</head>
 
-<h2>Adicionar Fiscal</h2>
+<h2>Adicionar</h2>
 
 <form asp-action="CreateRdoConfirmed" method="post">
 
@@ -39,8 +41,8 @@
     </div>
     <br />
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-        <a asp-action="IndexRdo">Back to List</a>
+        <input type="submit" value="Criar" class="btn btn-primary" />
+        <a asp-action="IndexRdo">Voltar</a>
     </div>
 </form>
 

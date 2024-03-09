@@ -1,6 +1,10 @@
 ﻿@model MEC.ControleRDO.Data.VO.ObraVO
 
-<h2>Edit Obra</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Obra/edit.css">
+</head>
+
+<h2>Editar</h2>
 
 <form asp-action="EditObraConfirmed" method="post">
     <div class="form-group">
@@ -25,8 +29,8 @@
     </div>
     <br/>
     <div class="form-group">
-        <input type="submit" value="Edit" class="btn btn-primary" />
-        <a asp-action="IndexObra">Back to List</a>
+        <input type="submit" value="Editar" class="btn btn-primary" />
+        <a asp-action="IndexObra">Voltar</a>
     </div>
 </form>
 

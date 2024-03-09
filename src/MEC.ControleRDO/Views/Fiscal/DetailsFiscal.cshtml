@@ -1,6 +1,10 @@
 ﻿@model Data.VO.FiscalVO
 
-<h2>Fiscal Details</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Fiscal/details.css">
+</head>
+
+<h2>Detalhes</h2>
 
 <dl class="row">
     <dt class="col-sm-2">Id</dt>
@@ -16,5 +20,5 @@
 </dl>
 
 <form>
-    <a asp-action="IndexFiscal">Back to List</a>
+    <a asp-action="IndexFiscal" class="link-back">Voltar</a>
 </form>

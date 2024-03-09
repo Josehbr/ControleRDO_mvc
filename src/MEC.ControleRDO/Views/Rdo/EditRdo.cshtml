@@ -1,10 +1,15 @@
 ﻿@model Data.VO.RdoVO
+
+<head>
+    <link rel="stylesheet" href="~/css/Rdo/edit.css">
+</head>
+
 @{
     Model.DataRdo = DateTime.Now.Date;
     Model.DataEnvio = DateTime.Now.Date;
     Model.DataAssinatura = DateTime.Now.Date;
 }
-<h2>Edit Rdo</h2>
+<h2>Editar</h2>
 
 <form asp-action="EditRdoConfirmed" method="post">
     <div class="form-group">
@@ -43,8 +48,8 @@
     </div>
     <br />
     <div class="form-group">
-        <input type="submit" value="Edit" class="btn btn-primary" />
-        <a asp-action="IndexRdo">Back to List</a>
+        <input type="submit" value="Editar" class="btn btn-primary" />
+        <a asp-action="IndexRdo">Voltar</a>
     </div>
 </form>
 

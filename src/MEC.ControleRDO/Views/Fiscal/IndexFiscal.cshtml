@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<Data.VO.FiscalVO>
 
-<h2>Fiscal Index</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Fiscal/Index.css">
+</head>
+
+<h2>Fiscal</h2>
 
 <p>
     <form action="CreateFiscal">
-        <button type="submit">Create New</button>
+        <button type="submit">Novo</button>
     </form>
 </p>
 
@@ -22,12 +26,12 @@
             <tr>
                 <td>@fiscal.Nome</td>
                 <td>@fiscal.Email</td>
-                <td>
-                    <a asp-action="DetailsFiscal" asp-route-id="@fiscal.Id">Details</a> |
-                    <a asp-action="EditFiscal" asp-route-id="@fiscal.Id">Edit</a> |
-                    <a asp-action="DeleteFiscal" asp-route-id="@fiscal.Id">Delete</a>
+                <td class="action-links">
+                    <a class="link-to-page" asp-action="DetailsFiscal" asp-route-id="@fiscal.Id">Detalhes</a> |
+                    <a class="link-to-page" asp-action="EditFiscal" asp-route-id="@fiscal.Id">Editar</a> |
+                    <a class="link-to-page" asp-action="DeleteFiscal" asp-route-id="@fiscal.Id">Deletar</a>
                 </td>
-            </tr>
+            </tr> 
         }
     </tbody>
 </table>

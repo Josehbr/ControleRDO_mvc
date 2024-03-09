@@ -18,7 +18,7 @@ namespace MEC.ControleRDO.Controllers
             _rdoBusiness = rdoBusiness;
             _obraBusiness = obraBusiness;
         }
-
+        [HttpGet("IndexRdo")]
         public IActionResult IndexRdo(string filterType, string startDate, string endDate, string numeroOrcamento)
         {
             DateTime? startDateTime = null;

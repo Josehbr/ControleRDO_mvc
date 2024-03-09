@@ -1,13 +1,17 @@
 ﻿@model Data.VO.ObraVO
 
-<h2>Fiscal Details</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Obra/details.css">
+</head>
+
+<h2>Detalhes</h2>
 
 <dl class="row">
     <dt class="col-sm-2">Id</dt>
     <dd class="col-sm-10">@Model.Id</dd>
 </dl>
 <dl class="row">
-    <dt class="col-sm-2">Numero do Orcamento</dt>
+    <dt class="col-sm-2">Numero do Orçamento</dt>
     <dd class="col-sm-10">@Model.NumeroOrcamento</dd>
 </dl>
 <dl class="row">
@@ -20,5 +24,5 @@
 </dl>
 
 <form>
-    <a asp-action="IndexObra">Back to List</a>
+    <a asp-action="IndexObra">Voltar</a>
 </form>

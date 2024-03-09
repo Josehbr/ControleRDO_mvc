@@ -1,6 +1,10 @@
 ﻿@model Data.VO.ObraVO
 
-<h2>Delete obra</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Obra/delete.css">
+</head>
+
+<h2>Deletar</h2>
 
 <div>
     @if (ViewData["ErrorMessage"] != null)
@@ -9,13 +13,12 @@
             @ViewData["ErrorMessage"]
         </div>
     }
-    <h3>Are you sure you want to delete this?</h3>
     <dl class="row">
         <dt class="col-sm-2">Id</dt>
         <dd class="col-sm-10">@Model.Id</dd>
     </dl>
     <dl class="row">
-        <dt class="col-sm-2">Numero do Orcamento</dt>
+        <dt class="col-sm-2">Numero do Orçamento</dt>
         <dd class="col-sm-10">@Model.NumeroOrcamento</dd>
     </dl>
     <dl class="row">
@@ -30,6 +33,6 @@
     <form asp-action="DeleteObraConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-action="IndexObra">Back to List</a>
+        <a asp-action="IndexObra">Voltar</a>
     </form>
 </div>

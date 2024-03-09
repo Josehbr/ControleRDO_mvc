@@ -1,10 +1,15 @@
 ﻿@model IEnumerable<Data.VO.ObraVO>
 
-<h2>Obra Index</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Obra/Index.css">
+</head>
+
+
+<h2>Obra</h2>
 
 <p>
     <form action="CreateObra">
-        <button type="submit">Create New</button>
+        <button type="submit">Nova</button>
     </form>
 </p>
 
@@ -23,9 +28,9 @@
                 <td>@fiscal.NumeroOrcamento</td>
                 <td>@fiscal.SE</td>
                 <td>
-                    <a asp-action="DetailsObra" asp-route-id="@fiscal.Id">Details</a> |
-                    <a asp-action="EditObra" asp-route-id="@fiscal.Id">Edit</a> |
-                    <a asp-action="DeleteObra" asp-route-id="@fiscal.Id">Delete</a>
+                    <a asp-action="DetailsObra" asp-route-id="@fiscal.Id">Detalhe</a> |
+                    <a asp-action="EditObra" asp-route-id="@fiscal.Id">Editar</a> |
+                    <a asp-action="DeleteObra" asp-route-id="@fiscal.Id">Deletar</a>
                 </td>
             </tr>
         }

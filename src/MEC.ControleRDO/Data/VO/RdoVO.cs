@@ -30,6 +30,7 @@ namespace MEC.ControleRDO.Data.VO
         [Display(Name = "Nome da obra")]
         public string NomeObra { get; set; }
 
+        [Display(Name = "Nome da Obra")]
         public long ObraId { get; set; }
         public virtual ObraVO Obra { get; set; }
 

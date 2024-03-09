@@ -1,17 +1,18 @@
-﻿@model IEnumerable<MEC.ControleRDO.Data.VO.RdoVO>
+﻿@model IEnumerable<Data.VO.RdoVO>
 
-<h2>Rdo Index</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Rdo/Index.css">
+</head>
 
-<p>
-    <form asp-action="CreateRdo">
-        <button type="submit" class="btn btn-primary">Create New</button>
+<h2>Rdo</h2>
+
+<div class="d-inline-block">
+    <form action="CreateRdo" class="d-inline-block me-2">
+        <button type="submit" class="btn btn-primary">Novo</button>
     </form>
-</p>
+    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#filterModal">Filtrar</button>
+</div>
 
-<!-- Botão de filtro -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
-    Filtrar
-</button>
 
 <!-- Modal de filtro -->
 <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
@@ -65,9 +66,9 @@
                 <td>@rdo.NomeFiscal</td>
                 <td>@rdo.NumeroOrcamento</td>
                 <td>
-                    <a asp-action="DetailsRdo" asp-route-id="@rdo.Id">Details</a> |
-                    <a asp-action="EditRdo" asp-route-id="@rdo.Id">Edit</a> |
-                    <a asp-action="DeleteRdo" asp-route-id="@rdo.Id">Delete</a>
+                    <a asp-action="DetailsRdo" asp-route-id="@rdo.Id">Detalhes</a> |
+                    <a asp-action="EditRdo" asp-route-id="@rdo.Id">Editar</a> |
+                    <a asp-action="DeleteRdo" asp-route-id="@rdo.Id">Deletar</a>
                 </td>
             </tr>
         }

@@ -1,6 +1,10 @@
 ﻿@model Data.VO.FiscalVO
 
-<h2>Edit Fiscal</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Fiscal/edit.css">
+</head>
+
+<h2>Editar</h2>
 
 <form asp-action="EditFiscalConfirmed" method="post">
     <div class="form-group">
@@ -15,11 +19,9 @@
         <label asp-for="Email" class="control-label"></label>
         <input asp-for="Email" class="form-control" />
     </div>
-    <br/>
+    <br />
     <div class="form-group">
-        <input type="submit" value="Edit" class="btn btn-primary" />
-        <a asp-action="IndexFiscal">Back to List</a>
+        <input type="submit" value="Editar" class="btn btn-primary" />
+        <a asp-action="IndexFiscal" class="link-back">Voltar</a>
     </div>
-
 </form>
-

@@ -1,0 +1,46 @@
+﻿/* delete-fiscal.css */
+
+/* Estilo para o título */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Estilo para a mensagem de erro */
+.alert {
+    margin-bottom: 20px;
+}
+
+/* Estilo para os detalhes */
+.row {
+    margin-bottom: 10px;
+}
+
+.col-sm-2 {
+    font-weight: bold;
+}
+
+/* Estilo para o botão de delete */
+.btn-danger {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+/* Estilo para o link "Back to List" */
+.link-back {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+}
+
+    .link-back:hover {
+        text-decoration: underline;
+    }

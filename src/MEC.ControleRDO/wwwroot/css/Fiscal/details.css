@@ -1,0 +1,26 @@
+﻿
+/* Estilo para o título */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Estilo para os detalhes */
+.row {
+    margin-bottom: 10px;
+}
+
+.col-sm-2 {
+    font-weight: bold;
+}
+
+/* Estilo para o link */
+.link-back {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+}
+
+    .link-back:hover {
+        text-decoration: underline;
+    }

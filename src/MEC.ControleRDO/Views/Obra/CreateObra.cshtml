@@ -1,6 +1,10 @@
 ﻿@model Data.VO.ObraVO
 
-<h2>Adicionar Obra</h2>
+<head>
+    <link rel="stylesheet" href="~/css/Obra/edit.css">
+</head>
+
+<h2>Adicionar</h2>
 
 <form asp-action="CreateObraConfirmed" method="post">
     <div class="form-group">
@@ -21,7 +25,7 @@
     </div>
     <br />
     <div class="form-group">
-        <input type="submit" value="CreateObra" class="btn btn-primary" />
-        <a asp-action="IndexObra">Back to List</a>
+        <input type="submit" value="Criar" class="btn btn-primary" />
+        <a asp-action="IndexObra">Voltar</a>
     </div>
 </form>

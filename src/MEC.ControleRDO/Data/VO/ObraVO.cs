@@ -13,6 +13,7 @@ namespace MEC.ControleRDO.Data.VO
         public string SE { get; set; }
 
         // Relacionamento: Uma Obra pertence a um único Fiscal
+        [Display(Name = "Nome do Fiscal")]
         public long FiscalId { get; set; }
         public virtual FiscalVO Fiscal { get; set; }
 
