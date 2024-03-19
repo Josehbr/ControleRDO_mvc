@@ -13,19 +13,25 @@
     </div>
     <div class="form-group">
         <label asp-for="NumeroOrcamento" class="control-label"></label>
-        <input asp-for="NumeroOrcamento" class="form-control" />
+        <input asp-for="NumeroOrcamento" class="form-control" required />
     </div>
     <div class="form-group">
         <label asp-for="Nome" class="control-label"></label>
-        <input asp-for="Nome" class="form-control" />
+        <input asp-for="Nome" class="form-control" required />
     </div>
     <div class="form-group">
         <label asp-for="SE" class="control-label"></label>
-        <input asp-for="SE" class="form-control" />
+        <input asp-for="SE" class="form-control" required />
     </div>
     <div class="form-group">
         <label asp-for="FiscalId" class="control-label"></label>
-        <select asp-for="FiscalId" asp-items="@(new SelectList(Model.ListaDeFiscais, "Id", "Nome"))" class="form-control"></select>
+        <select asp-for="FiscalId" class="form-control" required>
+            <option value="">Selecione um Fiscal</option>
+            @foreach (var fiscal in Model.ListaDeFiscais)
+            {
+                <option value="@fiscal.Id">@fiscal.Nome</option>
+            }
+        </select>
     </div>
     <br/>
     <div class="form-group">

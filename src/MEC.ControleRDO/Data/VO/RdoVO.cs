@@ -8,15 +8,17 @@ namespace MEC.ControleRDO.Data.VO
     {
         public long Id { get; set; }
 
+        
         [Display(Name = "Data do Rdo")]
         public DateTime DataRdo { get; set; }
 
+        
         [Display(Name = "Data do envio")]
         public DateTime DataEnvio { get; set; }
 
         [Display(Name = "Data do assinatura")]
         public DateTime? DataAssinatura { get; set; }
-
+        //PerfilEnumValidation(ErrorMessage = "O perfil selecionado não é válido.")]
         public bool Assinatura { get; set; }
 
         public string? Observacao { get; set; }
@@ -28,9 +30,10 @@ namespace MEC.ControleRDO.Data.VO
         public string NumeroOrcamento { get; set; }
 
         [Display(Name = "Nome da obra")]
+        [Required(ErrorMessage = "O local da obra é obrigatório")]
         public string NomeObra { get; set; }
 
-        [Display(Name = "Nome da Obra")]
+        [Display(Name = "Nome da obra")]
         public long ObraId { get; set; }
         public virtual ObraVO Obra { get; set; }
 

@@ -23,6 +23,7 @@ builder.Services.AddDbContext<ControleRdoContext>(options => options.UseMySql(
 builder.Services.AddScoped<IFiscalBusiness, FiscalBusinessImplementation>();
 builder.Services.AddScoped<IObraBusiness, ObraBusinessImplementation>();
 builder.Services.AddScoped<IRdoBusiness, RdoBusinessImplementation>();
+builder.Services.AddScoped<IUsuarioBusiness, UsuarioImplementation>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 

@@ -4,11 +4,6 @@
     <link rel="stylesheet" href="~/css/Rdo/edit.css">
 </head>
 
-@{
-    Model.DataRdo = DateTime.Now.Date;
-    Model.DataEnvio = DateTime.Now.Date;
-    Model.DataAssinatura = DateTime.Now.Date;
-}
 <h2>Editar</h2>
 
 <form asp-action="EditRdoConfirmed" method="post">
@@ -42,14 +37,22 @@
         <label asp-for="Observacao" class="control-label"></label>
         <textarea asp-for="Observacao" class="form-control col-sm-12"></textarea>
     </div>
+    
     <div class="form-group">
         <label asp-for="ObraId" class="control-label"></label>
-        <select asp-for="ObraId" asp-items="@(new SelectList(Model.ListaObra, "Id", "Nome"))" class="form-control"></select>
+        <select asp-for="ObraId" class="form-control" required>
+            <option value="">Selecione uma obra</option>
+            @foreach (var obra in Model.ListaObra)
+            {
+                <option value="@obra.Id">@obra.Nome</option>
+            }
+        </select>
+        <span asp-validation-for="ObraId" class="text-danger"></span>
     </div>
-    <br />
+
+    <br/>
     <div class="form-group">
         <input type="submit" value="Editar" class="btn btn-primary" />
         <a asp-action="IndexRdo">Voltar</a>
     </div>
 </form>
-

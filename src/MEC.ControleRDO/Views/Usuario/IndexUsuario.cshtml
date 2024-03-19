@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Data.VO.UsuarioVO>
+
+<head>
+    <link rel="stylesheet" href="~/css/Usuario/Index.css">
+</head>
+
+<h2>Usuario</h2>
+
+<p>
+    <form action="CreateUsuario">
+        <button type="submit">Novo</button>
+    </form>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Perfil</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nome</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.Login</td>
+                <td>@usuario.Perfil</td>
+                <td class="action-links">
+                    <a class="link-to-page" asp-action="DetailsUsuario" asp-route-id="@usuario.Id">Detalhes</a> |
+                    <a class="link-to-page" asp-action="EditUsuario" asp-route-id="@usuario.Id">Editar</a> |
+                    <a class="link-to-page" asp-action="DeleteUsuario" asp-route-id="@usuario.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

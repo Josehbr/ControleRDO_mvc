@@ -1,0 +1,46 @@
+﻿@using MEC.ControleRDO.Enum
+@model Data.VO.UsuarioSemSenhaVO
+
+<head>
+    <link rel="stylesheet" href="~/css/Usuario/edit.css">
+</head>
+
+<h2>Editar</h2>
+
+<form asp-action="EditUsuarioConfirmed" method="post">
+    <div class="form-group">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Login" class="control-label"></label>
+        <input asp-for="Login" class="form-control" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Perfil" class="control-label"></label>
+        <select asp-for="Perfil" class="form-control">
+            <option value="">Selecione um perfil</option>
+            @foreach (var value in Enum.GetValues(typeof(PerfilEnum)))
+            {
+                <option value="@((int)value)">@value</option>
+            }
+        </select>
+        <span asp-validation-for="Perfil" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Editar" class="btn btn-primary" />
+        <a asp-action="IndexUsuario" class="link-back">Voltar</a>
+    </div>
+</form>

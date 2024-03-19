@@ -15,6 +15,8 @@ namespace MEC.ControleRDO.Context
 
         public DbSet<RdoModel> Rdo { get; set; }
 
+        public DbSet<UsuarioModel> Usuario { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ObraModel>()

@@ -36,20 +36,22 @@ namespace MEC.ControleRDO.Controllers
         }
 
         [HttpGet("CreateObra")]
-        public IActionResult CreateObra(ObraVO obra)
+        public IActionResult CreateObra()
         {
+            var obra = new ObraVO();
             var listaDeFiscais = _fiscalBusiness.FindAll();
             obra.ListaDeFiscais = listaDeFiscais;
 
             return View(obra);
-
         }
 
         [HttpPost]
         public IActionResult CreateObraConfirmed(ObraVO obra)
         {
             if (obra == null) return BadRequest();
+
             _obraBusiness.Create(obra);
+
             return RedirectToAction(nameof(IndexObra));
         }
 

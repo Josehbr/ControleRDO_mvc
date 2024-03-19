@@ -1,10 +1,5 @@
 ﻿@model Data.VO.RdoVO
-@{
-    // Defina os valores padrão para as propriedades de data no modelo
-    Model.DataRdo = DateTime.Now.Date;
-    Model.DataEnvio = DateTime.Now.Date;
-    Model.DataAssinatura = DateTime.Now.Date;
-}
+
 <head>
     <link rel="stylesheet" href="~/css/Rdo/edit.css">
 </head>
@@ -37,8 +32,15 @@
     </div>
     <div class="form-group">
         <label asp-for="ObraId" class="control-label"></label>
-        <select asp-for="ObraId" asp-items="@(new SelectList(Model.ListaObra, "Id", "Nome"))" class="form-control"></select>
+        <select asp-for="ObraId" class="form-control" required>
+            <option value="">Selecione uma obra</option>
+            @foreach (var obra in Model.ListaObra)
+            {
+                <option value="@obra.Id">@obra.Nome</option>
+            }
+        </select>
     </div>
+
     <br />
     <div class="form-group">
         <input type="submit" value="Criar" class="btn btn-primary" />

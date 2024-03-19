@@ -5,6 +5,7 @@ namespace MEC.ControleRDO.Data.VO
     public class ObraVO
     {
         public long Id { get; set; }
+
         [Display(Name = "Numero do Orçamento")]
         public string NumeroOrcamento { get; set; }
 
@@ -13,7 +14,7 @@ namespace MEC.ControleRDO.Data.VO
         public string SE { get; set; }
 
         // Relacionamento: Uma Obra pertence a um único Fiscal
-        [Display(Name = "Nome do Fiscal")]
+        
         public long FiscalId { get; set; }
         public virtual FiscalVO Fiscal { get; set; }
 
@@ -21,6 +22,7 @@ namespace MEC.ControleRDO.Data.VO
         // Relacionamento: Uma Obra pode ter vários Rdos
         public virtual ICollection<RdoVO> Rdos { get; set; }
 
+        [Display(Name = "Nome do Fiscal")]
         public List<FiscalVO> ListaDeFiscais { get; set; }
     }
 }

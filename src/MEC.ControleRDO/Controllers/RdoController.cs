@@ -55,10 +55,17 @@ namespace MEC.ControleRDO.Controllers
 
 
         [HttpGet("CreateRdo")]
-        public IActionResult CreateRdo(RdoVO rdo)
+        public IActionResult CreateRdo()
         {
+            var rdo = new RdoVO();
+
             var listaObra = _obraBusiness.FindAll();
             rdo.ListaObra = listaObra;
+
+            rdo.DataRdo = DateTime.Now.Date;
+            rdo.DataEnvio = DateTime.Now.Date;
+            rdo.DataAssinatura = DateTime.Now.Date;
+
             return View(rdo);
         }
 
@@ -80,6 +87,10 @@ namespace MEC.ControleRDO.Controllers
             var listaobra = _obraBusiness.FindAll();
             rdo.ListaObra = listaobra;
 
+            rdo.DataRdo = DateTime.Now.Date;
+            rdo.DataEnvio = DateTime.Now.Date;
+            rdo.DataAssinatura = DateTime.Now.Date;
+
             return View(rdo);
         }
 
@@ -87,11 +98,10 @@ namespace MEC.ControleRDO.Controllers
         public IActionResult EditRdoConfirmed(RdoVO rdo)
         {
             if (rdo == null) return BadRequest();
-
             _rdoBusiness.Update(rdo);
-
             return RedirectToAction(nameof(IndexRdo));
         }
+
         [HttpGet("DeleteRdo/{Id}")]
         public IActionResult DeleteRdo(long Id)
         {
