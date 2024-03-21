@@ -86,7 +86,6 @@ namespace MEC.ControleRDO.Business.Implementations
 
             if (rdoModel == null)
             {
-                // Lidar com o caso em que a entidade não é encontrada
                 return null;
             }
 

@@ -1,12 +1,13 @@
 ﻿using MEC.ControleRDO.Data.Convert.Implementaions;
 using MEC.ControleRDO.Data.VO;
+using MEC.ControleRDO.Enum;
 using MEC.ControleRDO.Models;
 using MEC.ControleRDO.Repository.Generic;
 
 namespace MEC.ControleRDO.Business.Implementations
 {
 
-        public class UsuarioImplementation : IUsuarioBusiness
+    public class UsuarioImplementation : IUsuarioBusiness
         {
             private readonly IRepository<UsuarioModel> _repository;
             private readonly UsuarioConvert _convert;
@@ -17,7 +18,15 @@ namespace MEC.ControleRDO.Business.Implementations
                 _convert = new UsuarioConvert();
             }
 
-            public UsuarioVO Create(UsuarioVO usuario)
+        public UsuarioVO GetByLogin(string login)
+        {
+            var usuarioModel = _repository.FindAll().SingleOrDefault(p => p.Login.ToUpper() == login.ToUpper());
+            return usuarioModel != null ? ConvertToVO(usuarioModel) : null;
+        }
+
+        
+
+        public UsuarioVO Create(UsuarioVO usuario)
             {
                 var usuariolEntity = _convert.Parser(usuario);
                 usuariolEntity = _repository.Create(usuariolEntity);
@@ -45,6 +54,20 @@ namespace MEC.ControleRDO.Business.Implementations
                 usuariolEntity = _repository.Update(usuariolEntity);
                 return _convert.Parser(usuariolEntity);
             }
+
+        private UsuarioVO ConvertToVO(UsuarioModel usuarioModel)
+        {
+            return new UsuarioVO
+            {
+                Id = usuarioModel.Id,
+                Nome = usuarioModel.Nome,
+                Login = usuarioModel.Login,
+                Email = usuarioModel.Email,
+                Perfil = usuarioModel.Perfil,
+                Senha = usuarioModel.Senha
+
+            };
         }
     }
+}
 

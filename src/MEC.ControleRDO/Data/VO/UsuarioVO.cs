@@ -23,5 +23,10 @@ namespace MEC.ControleRDO.Data.VO
         [Required(ErrorMessage = "A senha é obrigatória")]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        public bool SenhaValida(string senha)
+        {
+            return Senha == senha;
+        }
     }
 }

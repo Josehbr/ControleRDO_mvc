@@ -13,5 +13,11 @@ namespace MEC.ControleRDO.Models
         public string Email { get; set; }
         public PerfilEnum Perfil { get; set; }
         public string Senha { get; set; }
+
+
+        public bool SenhaValida(string senha)
+        {
+            return Senha == senha; 
+        }
     }
 }
