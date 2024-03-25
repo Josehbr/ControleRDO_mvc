@@ -20,8 +20,16 @@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Rdo" asp-action="IndexRdo">Rdo</a>
         </li>
+        
+        @if (Model.Perfil == ControleRDO.Enum.PerfilEnum.Admin)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="IndexUsuario">Usuario</a>
+            </li>
+        }
+
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Sair</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
         </li>
     </ul>
 </div>
