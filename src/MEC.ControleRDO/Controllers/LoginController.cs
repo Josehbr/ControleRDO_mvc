@@ -10,15 +10,29 @@ namespace MEC.ControleRDO.Controllers
     {
         private readonly ILogger<UsuarioController> _logger;
         private readonly IUsuarioBusiness _usuarioBusiness;
-        public LoginController(ILogger<UsuarioController> logger, IUsuarioBusiness usuarioBusiness)
+        private readonly ISessionBusiness _sessionBusiness;
+        public LoginController(ILogger<UsuarioController> logger, IUsuarioBusiness usuarioBusiness, ISessionBusiness sessionBusiness)
         {
             _logger = logger;
             _usuarioBusiness = usuarioBusiness;
+            _sessionBusiness = sessionBusiness; 
         }
 
         public IActionResult Index()
         {
+            // se usuario diver logado, redirecionar para a Home 
+
+            if(_sessionBusiness.GetSessaoUser()  != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
+        }
+
+        public IActionResult Sair()
+        {
+            _sessionBusiness.RemoveSessaoUser();
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -35,8 +49,10 @@ namespace MEC.ControleRDO.Controllers
                     {
                         if(usuario.SenhaValida(loginModel.Senha))
                         {
+                            _sessionBusiness.CreateSessaoUser(usuario);
                             return RedirectToAction("Index", "Home");
                         }
+
                         TempData["MenssagemErro"] = $"senha incorreta";
                     }
                     

@@ -19,13 +19,21 @@ builder.Services.AddDbContext<ControleRdoContext>(options => options.UseMySql(
 );
 
 //Dependency Injection
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+builder.Services.AddScoped<ISessionBusiness, SessionBusinessImplementation>();
 builder.Services.AddScoped<IFiscalBusiness, FiscalBusinessImplementation>();
 builder.Services.AddScoped<IObraBusiness, ObraBusinessImplementation>();
 builder.Services.AddScoped<IRdoBusiness, RdoBusinessImplementation>();
 builder.Services.AddScoped<IUsuarioBusiness, UsuarioImplementation>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -43,6 +51,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
