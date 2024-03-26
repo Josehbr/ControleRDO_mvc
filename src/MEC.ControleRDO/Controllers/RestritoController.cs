@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace MEC.ControleRDO.Controllers
 {
     [PaginaUsuarioLogado]
-    public class HomeController : Controller
+    public class RestritoController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            return View();  
         }
     }
 }

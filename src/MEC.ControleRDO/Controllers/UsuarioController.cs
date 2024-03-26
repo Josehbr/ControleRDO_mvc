@@ -1,11 +1,13 @@
 ﻿using MEC.ControleRDO.Business;
 using MEC.ControleRDO.Data.VO;
+using MEC.ControleRDO.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 
 namespace MEC.ControleRDO.Controllers
 {
+    [PaginaAdmin]
     public class UsuarioController : Controller
     {
         private readonly ILogger<UsuarioController> _logger;
