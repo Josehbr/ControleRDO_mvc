@@ -1,4 +1,5 @@
 ﻿using MEC.ControleRDO.Enum;
+using MEC.ControleRDO.Helper;
 using System.ComponentModel.DataAnnotations;
 
 namespace MEC.ControleRDO.Data.VO
@@ -26,7 +27,11 @@ namespace MEC.ControleRDO.Data.VO
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.CreateHash();
+        }
+        public void SetSenhaHash()
+        {
+            Senha = Senha.CreateHash();
         }
     }
 }

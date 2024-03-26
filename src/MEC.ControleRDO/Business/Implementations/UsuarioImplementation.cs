@@ -28,6 +28,7 @@ namespace MEC.ControleRDO.Business.Implementations
 
         public UsuarioVO Create(UsuarioVO usuario)
             {
+                usuario.SetSenhaHash();
                 var usuariolEntity = _convert.Parser(usuario);
                 usuariolEntity = _repository.Create(usuariolEntity);
                 return _convert.Parser(usuariolEntity);
