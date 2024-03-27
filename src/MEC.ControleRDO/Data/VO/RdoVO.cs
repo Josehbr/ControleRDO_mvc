@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MEC.ControleRDO.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -18,8 +19,8 @@ namespace MEC.ControleRDO.Data.VO
 
         [Display(Name = "Data do assinatura")]
         public DateTime? DataAssinatura { get; set; }
-        //PerfilEnumValidation(ErrorMessage = "O perfil selecionado não é válido.")]
-        public bool Assinatura { get; set; }
+
+        public AssEnum Assinatura { get; set; }
 
         public string? Observacao { get; set; }
 
@@ -35,6 +36,7 @@ namespace MEC.ControleRDO.Data.VO
 
         [Display(Name = "Nome da obra")]
         public long ObraId { get; set; }
+
         public virtual ObraVO Obra { get; set; }
 
         public List<ObraVO> ListaObra { get; set; }

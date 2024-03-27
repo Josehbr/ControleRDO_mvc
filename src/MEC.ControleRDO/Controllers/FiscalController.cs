@@ -111,6 +111,5 @@ namespace MEC.ControleRDO.Controllers
             return View("DeleteFiscal", fiscal);
         }
 
-
     }
 }

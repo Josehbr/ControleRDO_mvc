@@ -1,6 +1,5 @@
 ﻿using MEC.ControleRDO.Data.Convert.Implementaions;
 using MEC.ControleRDO.Data.VO;
-using MEC.ControleRDO.Enum;
 using MEC.ControleRDO.Models;
 using MEC.ControleRDO.Repository.Generic;
 

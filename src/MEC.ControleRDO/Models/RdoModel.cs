@@ -1,6 +1,5 @@
-﻿using MEC.ControleRDO.Models.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using MEC.ControleRDO.Enum;
+using MEC.ControleRDO.Models.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MEC.ControleRDO.Models
@@ -18,7 +17,7 @@ namespace MEC.ControleRDO.Models
         public DateTime? DataAssinatura { get; set; }
 
         [Column("assinatura")]
-        public bool Assinatura { get; set; }
+        public AssEnum Assinatura { get; set; }
 
         [Column("observacao")]
         public string? Observacao { get; set; }

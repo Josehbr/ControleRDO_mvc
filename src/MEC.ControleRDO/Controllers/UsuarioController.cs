@@ -23,6 +23,7 @@ namespace MEC.ControleRDO.Controllers
         public IActionResult IndexUsuario()
         {
             var usuarioList = _usuarioBusiness.FindAll();
+
             return View(usuarioList);
         }
 
@@ -143,7 +144,9 @@ namespace MEC.ControleRDO.Controllers
             }
 
             var usuario = _usuarioBusiness.FindById(Id);
+
             if (usuario == null) return NotFound();
+            
             return View("DeleteUsuario", usuario);
         }
     }

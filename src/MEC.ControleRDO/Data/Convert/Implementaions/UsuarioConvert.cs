@@ -1,7 +1,6 @@
 ﻿using MEC.ControleRDO.Data.Convert.Contract;
 using MEC.ControleRDO.Data.VO;
 using MEC.ControleRDO.Models;
-using Microsoft.Win32.SafeHandles;
 
 namespace MEC.ControleRDO.Data.Convert.Implementaions
 {

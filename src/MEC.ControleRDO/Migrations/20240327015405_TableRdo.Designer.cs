@@ -3,6 +3,7 @@ using System;
 using MEC.ControleRDO.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MEC.ControleRDO.Migrations
 {
     [DbContext(typeof(ControleRdoContext))]
-    partial class ControleRdoContextModelSnapshot : ModelSnapshot
+    [Migration("20240327015405_TableRdo")]
+    partial class TableRdo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -27,6 +27,7 @@ namespace MEC.ControleRDO.Controllers
             var obraList = _obraBusiness.FindAll();
             return View(obraList);
         }
+
         [HttpGet("DetailsObra/{Id}")]
         public IActionResult DetailsObra(long Id)
         {
@@ -69,6 +70,7 @@ namespace MEC.ControleRDO.Controllers
 
             return View(obra);
         }
+
         [HttpPost]
         public IActionResult EditObraConfirmed(ObraVO obra)
         {

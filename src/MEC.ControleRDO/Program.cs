@@ -2,7 +2,6 @@ using MEC.ControleRDO.Business.Implementations;
 using MEC.ControleRDO.Business;
 using MEC.ControleRDO.Context;
 using MEC.ControleRDO.Repository.Generic;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

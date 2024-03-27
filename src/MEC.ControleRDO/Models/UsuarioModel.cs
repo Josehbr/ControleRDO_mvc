@@ -1,6 +1,5 @@
 ﻿using MEC.ControleRDO.Enum;
 using MEC.ControleRDO.Models.Base;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MEC.ControleRDO.Models

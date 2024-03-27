@@ -1,8 +1,6 @@
 ﻿using MEC.ControleRDO.Data.Convert.Contract;
 using MEC.ControleRDO.Data.VO;
 using MEC.ControleRDO.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MEC.ControleRDO.Data.Convert.Implementaions
 {
@@ -10,7 +8,8 @@ namespace MEC.ControleRDO.Data.Convert.Implementaions
     {
         public ObraModel Parser(ObraVO origin)
         {
-            return origin == null ? null : new ObraModel
+            if (origin == null) return null;
+            return new ObraModel
             {
                 Id = origin.Id,
                 NumeroOrcamento = origin.NumeroOrcamento,
@@ -22,7 +21,8 @@ namespace MEC.ControleRDO.Data.Convert.Implementaions
 
         public ObraVO Parser(ObraModel origin)
         {
-            return origin == null ? null : new ObraVO
+            if (origin == null) return null;
+            return new ObraVO
             {
                 Id = origin.Id,
                 NumeroOrcamento = origin.NumeroOrcamento,
@@ -32,14 +32,16 @@ namespace MEC.ControleRDO.Data.Convert.Implementaions
             };
         }
 
-        public List<ObraModel> Parser(List<ObraVO> originList)
+        public List<ObraModel> Parser(List<ObraVO> origin)
         {
-            return originList?.Select(Parser).ToList();
+            if (origin == null) return null;
+            return origin.Select(item => Parser(item)).ToList();
         }
 
-        public List<ObraVO> Parser(List<ObraModel> originList)
+        public List<ObraVO> Parser(List<ObraModel> origin)
         {
-            return originList?.Select(Parser).ToList();
+            if (origin == null) return null;
+            return origin.Select(item => Parser(item)).ToList();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using MEC.ControleRDO.Models;
-using MEC.ControleRDO.Models.Base;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using MEC.ControleRDO.Models.Base;
 
 namespace MEC.ControleRDO.Repository.Generic
 {

@@ -20,6 +20,7 @@ namespace MEC.ControleRDO.Controllers
             _rdoBusiness = rdoBusiness;
             _obraBusiness = obraBusiness;
         }
+
         [HttpGet("IndexRdo")]
         public IActionResult IndexRdo(string filterType, string startDate, string endDate, string numeroOrcamento)
         {
@@ -37,9 +38,9 @@ namespace MEC.ControleRDO.Controllers
             }
 
             var rdolist = _rdoBusiness.FindAll(filterType, startDateTime, endDateTime, numeroOrcamento);
+
             return View(rdolist);
         }
-
 
         [HttpGet("DetailsRdo/{Id}")]
         public IActionResult DetailsRdo(long Id)
@@ -53,8 +54,6 @@ namespace MEC.ControleRDO.Controllers
 
             return View(rdo);
         }
-
-
 
         [HttpGet("CreateRdo")]
         public IActionResult CreateRdo()
@@ -75,7 +74,9 @@ namespace MEC.ControleRDO.Controllers
         public IActionResult CreateRdoConfirmed(RdoVO rdo)
         {
             if (rdo == null) return BadRequest();
+
             _rdoBusiness.Create(rdo);
+
             return RedirectToAction(nameof(IndexRdo));
         }
 
@@ -100,7 +101,9 @@ namespace MEC.ControleRDO.Controllers
         public IActionResult EditRdoConfirmed(RdoVO rdo)
         {
             if (rdo == null) return BadRequest();
+
             _rdoBusiness.Update(rdo);
+
             return RedirectToAction(nameof(IndexRdo));
         }
 
@@ -135,7 +138,9 @@ namespace MEC.ControleRDO.Controllers
             }
 
             var rdo = _rdoBusiness.FindById(Id);
+
             if (rdo == null) return NotFound();
+
             return View("DeleteRdo", rdo);
         }
     }

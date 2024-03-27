@@ -1,4 +1,5 @@
-﻿@model Data.VO.RdoVO
+﻿@using MEC.ControleRDO.Enum
+@model Data.VO.RdoVO
 
 <head>
     <link rel="stylesheet" href="~/css/Rdo/edit.css">
@@ -11,12 +12,11 @@
         <label asp-for="Id" class="control-label"></label>
         <input asp-for="Id" class="form-control" readonly />
     </div>
+
     <div class="form-group">
         <label asp-for="DataRdo" class="control-label"></label>
         <input asp-for="DataRdo" class="form-control" type="date" />
     </div>
-
-
 
     <div class="form-group">
         <label asp-for="DataEnvio" class="control-label"></label>
@@ -29,8 +29,15 @@
     </div>
 
     <div class="form-group">
-        <input asp-for="Assinatura" type="checkbox" />
-        <span>Assinado? </span>
+        <label asp-for="Assinatura" class="control-label"></label>
+        <select asp-for="Assinatura" class="form-control">
+            <option value="">Fiscal assinou o RDO?</option>
+            @foreach (var value in Enum.GetValues(typeof(AssEnum)))
+            {
+                <option value="@((int)value)">@value</option>
+            }
+        </select>
+        <span asp-validation-for="Assinatura" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -51,6 +58,7 @@
     </div>
 
     <br/>
+
     <div class="form-group">
         <input type="submit" value="Editar" class="btn btn-primary" />
         <a asp-action="IndexRdo">Voltar</a>

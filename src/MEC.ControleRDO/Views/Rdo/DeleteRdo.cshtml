@@ -13,27 +13,34 @@
             @ViewData["ErrorMessage"]
         </div>
     }
+
     <dl class="row">
         <dt class="col-sm-2">Id</dt>
         <dd class="col-sm-10">@Model.Id</dd>
     </dl>
+
     <dl class="row">
         <dt class="col-sm-2">Data do Rdo</dt>
         <dd class="col-sm-10">@Model.DataRdo.ToString("dd/MM/yyyy")</dd>
     </dl>
+
     <dl class="row">
         <dt class="col-sm-2">Numero do Orçamento</dt>
         <dd class="col-sm-10">@Model.DataEnvio.ToString("dd/MM/yyyy")</dd>
     </dl>
+
     <dl class="row">
         <dt class="col-sm-2">Data da Assinatura</dt>
         <dd class="col-sm-10">@Model.DataAssinatura?.ToString("dd/MM/yyyy")</dd>
     </dl>
+
     <dl class="row">
         <dt class="col-sm-2">Observaçao</dt>
         <dd class="col-sm-10">@Model.Observacao</dd>
     </dl>
+
     <br/>
+
     <form asp-action="DeleteRdoConfirmed" method="post">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />

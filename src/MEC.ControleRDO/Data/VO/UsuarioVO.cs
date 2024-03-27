@@ -29,6 +29,7 @@ namespace MEC.ControleRDO.Data.VO
         {
             return Senha == senha.CreateHash();
         }
+
         public void SetSenhaHash()
         {
             Senha = Senha.CreateHash();

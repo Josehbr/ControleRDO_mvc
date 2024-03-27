@@ -22,6 +22,7 @@ namespace MEC.ControleRDO.Business.Implementations
             _obraRepository = obraRepository;
             _fiscalRepository = fiscalRepository;
         }
+
         public RdoVO Create(RdoVO rdo)
         {
             var rdoEntity = _convert.Parser(rdo);
@@ -38,7 +39,6 @@ namespace MEC.ControleRDO.Business.Implementations
         {
             List<RdoModel> rdos = _repository.FindAll();
 
-            // Aplicar filtro por datas, se fornecido
             if (!string.IsNullOrEmpty(filterType) && startDate != null && endDate != null)
             {
                 switch (filterType)
@@ -57,7 +57,6 @@ namespace MEC.ControleRDO.Business.Implementations
                 }
             }
 
-            // Aplicar filtro por número de orçamento associado à Obra, se fornecido
             if (!string.IsNullOrEmpty(numeroOrcamento))
             {
                 rdos = rdos.Where(rdo => rdo.Obra.NumeroOrcamento == numeroOrcamento).ToList();
@@ -101,14 +100,12 @@ namespace MEC.ControleRDO.Business.Implementations
             return rdoVO;
         }
 
-
         public RdoVO Update(RdoVO rdo)
         {
             var rdoEntity = _convert.Parser(rdo);
             rdoEntity = _repository.Update(rdoEntity);
             return _convert.Parser(rdoEntity);
         }
-
         
     }
 }

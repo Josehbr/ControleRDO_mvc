@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace MEC.ControleRDO.Models
+﻿namespace MEC.ControleRDO.Models
 {
     public class LoginModel
     {

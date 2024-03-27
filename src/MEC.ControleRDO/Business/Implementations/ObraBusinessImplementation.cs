@@ -15,6 +15,7 @@ namespace MEC.ControleRDO.Business.Implementations
             _repository = repository;
             _convert = new ObraConvert();
         }
+
         public ObraVO Create(ObraVO obra)
         {
             var obraEntity = _convert.Parser(obra);

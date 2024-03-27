@@ -22,9 +22,10 @@
                 <h5 class="modal-title" id="filterModalLabel">Filtrar por:</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
                 <!-- Formulário de filtro -->
-                <form method="post" action="@Url.Action("IndexRdo")">
+                <form method="get" action="@Url.Action("IndexRdo")">
                     <div class="mb-3">
                         <label for="filterType" class="form-label">Tipo de filtro:</label>
                         <select class="form-select" id="filterType" name="filterType">
@@ -32,14 +33,17 @@
                             <option value="DataEnvio">Data de Envio</option>
                         </select>
                     </div>
+
                     <div class="mb-3" id="dateFilterContainer">
                         <label for="startDate" class="form-label">Data de início:</label>
                         <input type="date" class="form-control" id="startDate" name="startDate">
                     </div>
+
                     <div class="mb-3" id="endDateFilterContainer">
                         <label for="endDate" class="form-label">Data de fim:</label>
                         <input type="date" class="form-control" id="endDate" name="endDate">
                     </div>
+
                     <button type="submit" class="btn btn-primary">Filtrar</button>
                 </form>
             </div>
