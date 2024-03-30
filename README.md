@@ -1,2 +1,2 @@
-![Controle RDO](./DiagramaControleRDO.png)
+![Controle RDO](./ControleRDO.png)
 
